@@ -21,6 +21,10 @@ try {
 
 const response = await fetch(url).then(response => response.json());
 console.log(response);
+
+// const response = await axios(url);
+//         console.log(response);
+
 const { main, sys, weather, name } = response;
 
 const iconUrl = `http://openweathermap.org/img/wn/${weather[0].icon}@2x.png`;
