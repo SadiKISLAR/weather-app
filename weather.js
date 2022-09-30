@@ -17,6 +17,7 @@ const inputValue = input.value;
 const units = "metric";
 const lang = "tr";
 const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${tokenKey}&units=${units}&lang=${lang}`;
+try {
 
 const response = await fetch(url).then(response => response.json());
 console.log(response);
@@ -56,3 +57,8 @@ list.prepend(createdLi);
 form.reset();
 
 }
+ catch(error){
+console.log(error);
+msg.innerText = response.message;
+}
+};
