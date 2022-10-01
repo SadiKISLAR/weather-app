@@ -17,8 +17,8 @@ const inputValue = input.value;
 const units = "metric";
 const lang = "tr";
 const url = `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&appid=${tokenKey}&units=${units}&lang=${lang}`;
-try {
 
+try {
 const response = await fetch(url).then(response => response.json());
 console.log(response);
 
@@ -58,6 +58,14 @@ createdLi.innerHTML = `<h2 class="city-name" data-name="${name}, ${sys.country}"
                             </figure>`;
 
 list.prepend(createdLi);
+
+    // Capturing
+        createdLi.addEventListener("click", (e)=>{
+            if(e.target.tagName == "IMG"){
+                e.target.src = (e.target.src == iconUrl) ? iconUrlAWS : iconUrl;
+            }
+        });
+
 form.reset();
 
 }
